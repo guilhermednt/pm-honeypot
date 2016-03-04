@@ -1,0 +1,13 @@
+detectors:
+    user-agent:
+        blacklist:
+            - preg_match-style regex
+        whitelist:
+            - preg_match-style regex
+        detect_condition: not_whitelist or blacklist
+
+log:
+    access:
+        file: access.log
+    detections:
+        file: detections.log

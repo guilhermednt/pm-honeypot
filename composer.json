@@ -1,0 +1,19 @@
+{
+    "name": "guilhermednt/pm-honeypot",
+    "description": "Poor Man's Honeypot",
+    "require": {
+        "symfony/yaml": "^3.0",
+        "guilhermednt/config": "^0.1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Guilherme Donato",
+            "email": "guilhermednt@users.noreply.github.com"
+        }
+    ]
+}

@@ -1,35 +1,20 @@
-<?php
-require_once './vendor/autoload.php';
-
-use Donato\Configuration\YamlConfig;
-use Donato\Honeypot\Detector\UserAgentDetector;
-
-$config = new YamlConfig('parameters.yml');
-
-$userAgent       = $_SERVER['HTTP_USER_AGENT'];
-$whitelist       = $config->get('detectors.user-agent.whitelist');
-$blacklist       = $config->get('detectors.user-agent.blacklist');
-$detectCondition = $config->get('detectors.user-agent.detect_condition');
-
-$detectors = [
-    new UserAgentDetector($userAgent, $blacklist, $whitelist, $detectCondition)
-];
-
-foreach ($detectors as $detector) {
-    if ($detector instanceof Donato\Honeypot\Detector\DetectorInterface) {
-        if ($detector->detected()) {
-            die("FAIL!");
-        }
-    }
-}
-die("ok");
-?>
+<?php require_once './detector.php'; ?>
 <!DOCTYPE html>
 <html>
     <head>
         <title></title>
     </head>
     <body>
-        /
+        <form method="post">
+            <label>
+                <?= $config->get('view.input1.label') ?>
+                <input type="<?= $config->get('view.input1.type') ?>" name="<?= $config->get('view.input1.name') ?>">
+            </label>
+            <label>
+                <?= $config->get('view.input2.label') ?>
+                <input type="<?= $config->get('view.input2.type') ?>" name="<?= $config->get('view.input2.name') ?>">
+            </label>
+            <button type="submit"><?= $config->get('view.button.label') ?></button>
+        </form>
     </body>
 </html>

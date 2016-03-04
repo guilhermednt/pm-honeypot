@@ -7,7 +7,18 @@ detectors:
         detect_condition: not_whitelist or blacklist
 
 log:
-    access:
-        file: access.log
-    detections:
-        file: detections.log
+    access: access.log
+    detections: detections.log
+
+view:
+    input1:
+        name: input1
+        label: first input
+        type: text
+    input2:
+        name: input2
+        label: second input
+        type: password
+    button:
+        label: button label
+        type: submit
